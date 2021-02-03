@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import marked from 'marked';
-import ReactFCCtest from 'react-fcctest';
 import Container from 'react-bootstrap/Container';
 
 marked.setOptions({
@@ -37,9 +36,11 @@ class App extends React.Component {
       <div id="wrapper">
         <Container fluid>
           <h1 id="title">Markdown Previewer</h1>
-          <textarea id="editor" value={this.state.input} onChange={this.handleChange}/>
-          <div id="preview" dangerouslySetInnerHTML={this.markdownParse()}></div>
-          <ReactFCCtest />
+          
+          <div id="text-displays">
+            <textarea id="editor" class="text-window" value={this.state.input} onChange={this.handleChange}/>
+            <div id="preview" class="text-window" dangerouslySetInnerHTML={this.markdownParse()}></div>
+          </div>
         </Container>
       </div>
     );
